@@ -1,0 +1,14 @@
+{
+  "name": "online-store",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "npx kill-port 3000 3001 3002 && concurrently --kill-others \"npm start --prefix ./online-store-main\" \"npm start --prefix ./online-store-header\" \"npm start --prefix ./online-store-cart\""
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  }
+}

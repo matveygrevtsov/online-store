@@ -288,3 +288,8 @@ npm i style-loader -D
   ],
 },
 ```
+
+чтобы тайпскрипт не ругался на импорты CSS-модулей, создаём файл `/src/types/index.d.ts` со следующим содержимым:
+```ts
+declare module "*.module.css";
+```

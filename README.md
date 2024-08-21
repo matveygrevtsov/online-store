@@ -91,3 +91,12 @@ git submodule add https://github.com/matveygrevtsov/online-store-main.git
 git submodule update --init --force --remote
 ```
 
+## Шаг№3: Устанавливаем React для каждого микрофронта
+Данный шаг рассмотрим на примере `online-shop-main`. Все остальные микрофронты - по аналогии.
+
+**Инициализируем npm**
+```console
+npm init
+```
+
+

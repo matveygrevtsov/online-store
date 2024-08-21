@@ -264,3 +264,26 @@ npm run start
 ```
 
 убеждаемся, что проект корректно билдится и запускается.
+
+**Добавляем CSS-модули**
+Устанавливаем необходимые зависимости:
+```console
+npm i css-loader -D
+npm i style-loader -D
+```
+
+и в webpack.config.js в поле `module > rules` добавляем новый объект:
+```js
+{
+  test: /\.(css)$/,
+  use: [
+    "style-loader",
+    {
+      loader: "css-loader",
+      options: {
+        modules: true,
+      },
+    },
+  ],
+},
+```

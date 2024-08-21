@@ -190,9 +190,77 @@ import { App } from "./App";
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
 );
+
 root.render(
   <React.StrictMode>
     <App />
   </React.StrictMode>
 );
 ```
+
+**Создаём файл src/index.tsx**
+```ts
+import("./bootstrap");
+```
+
+**Создаём webpack.config.js**
+```js
+const path = require("path");
+const HtmlWebpackPlugin = require("html-webpack-plugin");
+
+const OUTPUT_FOLDER_NAME = path.resolve(__dirname, "dist"); // Папка, куда всё заливаться сбилженный проект.
+
+module.exports = {
+  mode: "development",
+  entry: "./src/index.tsx",
+  output: {
+    path: OUTPUT_FOLDER_NAME,
+    filename: "bundle.js",
+  }, // выходной файл
+  resolve: {
+    extensions: [".tsx", ".ts", ".js", "jsx"],
+  },
+  module: {
+    rules: [
+      {
+        test: /\.(ts|tsx|js|jsx)$/,
+        exclude: /node_modules/,
+        use: "ts-loader",
+      },
+    ],
+  },
+  plugins: [
+    new HtmlWebpackPlugin({
+      template: "./public/index.html",
+    }),
+  ],
+  devServer: {
+    static: {
+      directory: OUTPUT_FOLDER_NAME,
+    },
+    port: 3000,
+    historyApiFallback: true,
+    compress: true,
+  },
+};
+```
+
+**Добавляем в package.json скрипты для билда и для запуска**
+```json
+{
+  "build": "npx webpack --mode production",
+  "start": "npx webpack server"
+}
+```
+
+Запускаем сначала:
+```console
+npm run build
+```
+
+а затем:
+```console
+npm run start
+```
+
+убеждаемся, что проект корректно билдится и запускается.

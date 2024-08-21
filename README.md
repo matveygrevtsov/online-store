@@ -68,3 +68,26 @@ module.exports = {
 };
 ```
 
+## Шаг№1: подготовка репозиториев
+На этом шаге для каждого микрофронта нужно создать отдельный репозиторий. Так же нужно будет создать главный репозиторий-контейнер online-store, который будет включать в себя все репозитории, соответствующие нашим микро-фронтам.
+
+## Шаг№2: Инициализация суб-модулей в github
+Клонирум себе главный репозиторий (online-store):
+```console
+git clone https://github.com/matveygrevtsov/online-store.git
+```
+И теперь мы должны каждый микрофронт добавить в качестве суб-модуля:
+```console
+git submodule add https://github.com/matveygrevtsov/online-store-header.git
+git submodule add https://github.com/matveygrevtsov/online-store-cart.git
+git submodule add https://github.com/matveygrevtsov/online-store-main.git
+```
+Далее, мы должны запушить эти суб-модули в основной репозиторий online-store-main.
+
+Полезная статья про субмодули в гите: https://git-scm.com/book/ru/v2/Инструменты-Git-Подмодули
+
+Чтобы актуализировать субмодули, нужно использовать команду:
+```console
+git submodule update --init --force --remote
+```
+

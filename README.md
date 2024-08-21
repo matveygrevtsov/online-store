@@ -113,6 +113,14 @@ npm install webpack-dev-server -D
 npm install html-webpack-plugin -D # Чтобы вебпак мог работать с html-файлами
 ```
 
+**Устанавливаем React**
+```console
+npm install react
+npm install react-dom
+npm install @types/react -D
+npm install @types/react-dom -D
+```
+
 **Устанавливаем typescript**
 ```console
 npm install typescript -D
@@ -142,9 +150,7 @@ npm install ts-loader -D # Чтобы вебпак мог билдить ts-фа
 }
 ```
 
-**Создаём основной html-файл и заполняем дефолтным содержимым**
-Расположение файла: `./public/index.html `
-
+**Создаём основной файл public/index.html и заполняем дефолтным содержимым**
 ```html
 <!DOCTYPE html>
 <html lang="en">
@@ -166,5 +172,12 @@ npm install ts-loader -D # Чтобы вебпак мог билдить ts-фа
 </html>
 ```
 
+**Создаём файл src/App.tsx**
+```ts
+import React from "react";
 
+export const App = (): JSX.Element => {
+  return <h1>Hello, world!</h1>;
+};
 
+```

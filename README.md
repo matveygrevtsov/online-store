@@ -272,7 +272,7 @@ npm i css-loader -D
 npm i style-loader -D
 ```
 
-и в webpack.config.js в поле `module > rules` добавляем новый объект:
+и в `webpack.config.js` в поле `module > rules` добавляем новый объект:
 ```js
 {
   test: /\.(css)$/,

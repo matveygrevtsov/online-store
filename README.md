@@ -179,5 +179,20 @@ import React from "react";
 export const App = (): JSX.Element => {
   return <h1>Hello, world!</h1>;
 };
+```
 
+**Создаём файл src/bootstrap.tsx**
+```ts
+import React from "react";
+import ReactDOM from "react-dom/client";
+import { App } from "./App";
+
+const root = ReactDOM.createRoot(
+  document.getElementById("root") as HTMLElement
+);
+root.render(
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>
+);
 ```

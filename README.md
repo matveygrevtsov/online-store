@@ -94,9 +94,77 @@ git submodule update --init --force --remote
 ## Шаг№3: Устанавливаем React для каждого микрофронта
 Данный шаг рассмотрим на примере `online-shop-main`. Все остальные микрофронты - по аналогии.
 
-**Инициализируем npm**
+**Инициализируем npm:**
 ```console
 npm init
 ```
+
+**Создаём файл .gitignore со следующим содержимым:**
+```console
+/dist
+/node_modules
+```
+
+**Устанавливаем webpack:**
+```console
+npm install webpack -D
+npm install webpack-cli -D
+npm install webpack-dev-server -D
+npm install html-webpack-plugin -D # Чтобы вебпак мог работать с html-файлами
+```
+
+**Устанавливаем typescript**
+```console
+npm install typescript -D
+npm install ts-loader -D # Чтобы вебпак мог билдить ts-файлы
+```
+
+**Инициализируем tsconfig.json**
+```json
+{
+  "compilerOptions": {
+    "target": "es5",
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "allowJs": true,
+    "skipLibCheck": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "strict": true,
+    "forceConsistentCasingInFileNames": true,
+    "noFallthroughCasesInSwitch": true,
+    "module": "esnext",
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "jsx": "react",
+    "typeRoots": ["./node_modules/@types", "./src/types/index.d.ts"],
+  },
+  "include": ["src"]
+}
+```
+
+**Создаём основной html-файл и заполняем дефолтным содержимым**
+Расположение файла: `./public/index.html `
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <base href="/" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#000000" />
+    <meta
+      name="description"
+      content="Web site created using create-react-app"
+    />
+    <title>React App</title>
+  </head>
+  <body>
+    <noscript>You need to enable JavaScript to run this app.</noscript>
+    <div id="root"></div>
+  </body>
+</html>
+```
+
 
 
